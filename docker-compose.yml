@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+  users-service:
+    restart: on-failure
+    build: ./users-service
+    ports:
+     - "8123:8123"
+    depends_on:
+     - db
+    environment:
+     - DATABASE_HOST=db
+    command: ["./wait-for-it.sh","db:8123", "--", "node", "/app/index.js"]
+  db:
+    build: ./test-database

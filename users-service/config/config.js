@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 //  config.js
 //
 //  Simple application configuration. Extend as needed.
